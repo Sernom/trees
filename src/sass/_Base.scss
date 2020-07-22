@@ -1,0 +1,49 @@
+* {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0
+}
+
+:root {
+  --green: #94c140;
+  --yellow: #fcf5ce;
+  --darkgreen: #013f01;
+  --purple: #593dff;
+  --buttonPurple: #593DFF;
+  --purpleOpacity: rgba(89, 61, 255, .04);
+  --menuBackground: rgba(153, 153, 167, .63);
+  --black: #22242A;
+  --blackText: #000000;
+  --gray: #d3d5de;
+  --lightgray: #F1F3F8;
+  --showMoreGray: #F3F3F3;
+  --spacerGray: #f8f9fd;
+  --fontGray: #8d92a4;
+  --textBoxGray: #F4F5F9;
+  --textLabelGray: #A7ACC0;
+  --textInputPlaceholderGray: #BFBFBF;
+  --blackwithopacity: rgba(29, 32, 41, .6);
+  --aqua: #00ded7;
+  --aquaOpacity: rgba(0, 222, 215, .04);
+  --orange: #FD932A;
+  --orangeOpacity: rgba(251, 183, 110, .04);
+  --red: #F44759;
+  --redOpacity: rgba(191, 57, 42, .04);
+  --blue: #3498DB;
+  --ssGray: #95A6A6;
+  --rowHover: #23527C;
+  --lineBreak: #D8D8D8;
+  --white: #ffffff;
+}
+ 
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #F8F9FC;
+}
+
+button {
+  cursor: pointer;
+}
