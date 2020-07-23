@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setValue, getTree, matchFields } from '../../redux'
+import InputGroup from './InputGroup'
 
 const trees = require('../../assets/trees.json')
 
@@ -20,61 +21,81 @@ const LoginPanel = () => {
     dispatch(setValue({ field: e.target.name, value: e.target.value }))
   }
 
+  const inputList = {
+    name: {
+      type: 'text',
+      name: 'name',
+      placeholder: 'Name',
+      value: name,
+      onChange: e => onChange(e),
+      onFocus: e => onFocus(e)
+    },
+    email: {
+      type: 'email',
+      name: 'email',
+      placeholder: 'Email',
+      value: email,
+      onChange: e => onChange(e),
+      onFocus: e => onFocus(e)
+    },
+    confirmEmail: {
+      type: 'email',
+      name:'confirmEmail',
+      placeholder:'Confirm Email',
+      value: confirmEmail,
+      onChange:e => onChange(e),
+      onFocus:e => onFocus(e),
+      onBlur:e => matchFields(email, confirmEmail, e.target.name)
+    },
+    username: {
+      type: 'text',
+      name: 'username',
+      placeholder: 'Username',
+      value: username,
+      onChange: e => onChange(e),
+      onFocus: e => onFocus(e)
+    },
+    password: {
+      type: 'password',
+      name: 'password',
+      placeholder: 'Password',
+      value: password,
+      onChange: e => onChange(e),
+      onFocus: e => onFocus(e)
+    },
+    confirmPassword: {
+      type: 'password',
+      name: 'confirmPassword',
+      placeholder: 'Confirm Password',
+      value: confirmPassword,
+      onChange: e => onChange(e),
+      onFocus: e => onFocus(e)
+    }
+  }
+
+  const createInputGroup = (key, index) => {
+    return (
+      <InputGroup
+        attributes = {inputList[key]}
+        key = {index}
+      />
+    )
+  }
+
+  const createInputList = () => {
+    const inputs = Object.keys(inputList)
+
+    return (
+      inputs.map((key, index) => (
+        createInputGroup(key, index)
+      ))
+    )
+  }
+
   return (
     <div className = 'login-panel'>
       <form>
-        <div className = 'input-group'>
-          <input
-            type='text'
-            name='name'
-            placeholder='Name'
-            value={name}
-            onChange={e => onChange(e)}
-            onFocus={e => onFocus(e)}
-          />
-          <button>!!!</button>
-        </div>
-        <input
-          type='email'
-          name='email'
-          placeholder='Email'
-          value={email}
-          onChange={e => onChange(e)}
-          onFocus={e => onFocus(e)}
-        />
-        <input
-          type='email'
-          name='confirmEmail'
-          placeholder='Confirm Email'
-          value={confirmEmail}
-          onChange={e => onChange(e)}
-          onFocus={e => onFocus(e)}
-          onBlur={e => matchFields(email, confirmEmail, e.target.name)}
-        />
-        <input
-          type='text'
-          name='username'
-          placeholder='Username'
-          value={username}
-          onChange={e => onChange(e)}
-          onFocus={e => onFocus(e)}
-        />
-        <input
-          type='password'
-          name='password'
-          placeholder='Password'
-          value={password}
-          onChange={e => onChange(e)}
-          onFocus={e => onFocus(e)}
-        />
-        <input
-          type='password'
-          name='confirmPassword'
-          placeholder='Confirm Password'
-          value={confirmPassword}
-          onChange={e => onChange(e)}
-          onFocus={e => onFocus(e)}
-        />
+        {createInputList()}
         <button 
           onClick={() => dispatch(getTree(undefined, trees.length - 1, tree))}
           name='tree'
