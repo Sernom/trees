@@ -75,14 +75,18 @@ button {
     outline: none; }
   .input-group span {
     background-color: lightblue;
+    display: hidden;
     color: darkslategray; }
   .input-group .corner-span {
     border: none;
-    color: darkslategray; }
-    .input-group .corner-span_error {
-      background-color: darkred; }
+    background-color: lightblue;
+    display: hidden;
+    color: darkslategray .input-group .corner-span _error;
+      color-background-color: darkred;
+      color-display: flex; }
     .input-group .corner-span_success {
-      background-color: darkgreen; }
+      background-color: darkgreen;
+      display: flex; }
 
 .random-tree {
   display: flex;

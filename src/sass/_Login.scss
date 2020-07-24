@@ -43,20 +43,19 @@
     outline: none;
   }
 
-  & span {
-    background-color: lightblue;
-    color: darkslategray
-  }
   .corner-span {
     border: none;
-    color: darkslategray;
+    background-color: lightblue;
+    color: darkslategray
 
     &_error {
       background-color: darkred;
+      display: flex;
     }
 
     &_success {
       background-color: darkgreen;
+      display: flex;
     }
   }
 }
