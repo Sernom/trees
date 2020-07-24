@@ -9,7 +9,14 @@ const initialState = {
 	password: '',
 	confirmPassword: '',
 	focus: '',
-	warnings: []
+	status: {
+		name: {},
+		email: {},
+		confirmEmail: {},
+		username: {},
+		password: {},
+		confirmPassword: {}
+	}
 }
 
 const userReducer = (state = initialState, action) => {
@@ -23,7 +30,8 @@ const userReducer = (state = initialState, action) => {
 
 		case MATCH_FIELDS:
 			return {
-				...state
+				...state,
+				status: action.payload
 			}
 
 		default: return state

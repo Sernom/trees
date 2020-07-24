@@ -6,12 +6,12 @@ import InputGroup from './InputGroup'
 const trees = require('../../assets/trees.json')
 
 const LoginPanel = () => {
-  const { name, email, confirmEmail, password, confirmPassword, username, tree } = useSelector(state => state.user)
+  const { name, email, confirmEmail, password, confirmPassword, username, tree, status } = useSelector(state => state.user)
 	const dispatch = useDispatch()
 
 	useEffect(() => {
 
-	}, [tree])
+	}, [tree, status])
 
   const onFocus = e => {
     dispatch(setValue({field: 'focus', value: e.target.name }))
@@ -45,7 +45,7 @@ const LoginPanel = () => {
       value: confirmEmail,
       onChange:e => onChange(e),
       onFocus:e => onFocus(e),
-      onBlur:e => matchFields(email, confirmEmail, e.target.name)
+      onBlur:e => dispatch(matchFields(email, confirmEmail, e.target.name, status))
     },
     username: {
       type: 'text',
@@ -69,7 +69,8 @@ const LoginPanel = () => {
       placeholder: 'Confirm Password',
       value: confirmPassword,
       onChange: e => onChange(e),
-      onFocus: e => onFocus(e)
+      onFocus: e => onFocus(e),
+      onBlur:e => dispatch(matchFields(password, confirmPassword, e.target.name, status))
     }
   }
 
@@ -78,6 +79,7 @@ const LoginPanel = () => {
       <InputGroup
         attributes = {inputList[key]}
         key = {index}
+        children = {inputSpan(key)}
       />
     )
   }
@@ -89,6 +91,15 @@ const LoginPanel = () => {
       inputs.map((key, index) => (
         createInputGroup(key, index)
       ))
+    )
+  }
+
+  const inputSpan = (key) => {
+    const className = `corner-span corner-span_${(status[key].success && 'success') ||  (status[key].error && 'error')}`
+    const content = (status[key].success && '$') || (status[key].error && 'X')
+
+    return (
+      <span className = {className}>{content}</span>
     )
   }
 

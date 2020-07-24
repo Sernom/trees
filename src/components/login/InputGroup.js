@@ -6,7 +6,7 @@ const InputGroup = (props) => {
     <input
       {...props.attributes}
     />
-    <button>!!!</button>
+    {props.children}
   </div>
   )
 }

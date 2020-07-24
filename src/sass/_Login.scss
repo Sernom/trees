@@ -27,7 +27,7 @@
   border: 0.4rem solid darkslategray;
   color: black;
 
-  & input, button {
+  & input, span {
     padding: 0.5rem;
     
     border: none;
@@ -43,9 +43,21 @@
     outline: none;
   }
 
-  & button {
+  & span {
     background-color: lightblue;
     color: darkslategray
+  }
+  .corner-span {
+    border: none;
+    color: darkslategray;
+
+    &_error {
+      background-color: darkred;
+    }
+
+    &_success {
+      background-color: darkgreen;
+    }
   }
 }
 

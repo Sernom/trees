@@ -2,6 +2,9 @@
   font-size: 62.5%;
   font-family: 'Roboto', sans-serif; }
 
+body {
+  margin: 0; }
+
 :root {
   --green: #94c140;
   --yellow: #fcf5ce;
@@ -62,7 +65,7 @@ button {
   border-radius: 0.3rem;
   border: 0.4rem solid darkslategray;
   color: black; }
-  .input-group input, .input-group button {
+  .input-group input, .input-group span {
     padding: 0.5rem;
     border: none; }
   .input-group input {
@@ -70,9 +73,16 @@ button {
     background-color: #f5deb3; }
   .input-group input:focus {
     outline: none; }
-  .input-group button {
+  .input-group span {
     background-color: lightblue;
     color: darkslategray; }
+  .input-group .corner-span {
+    border: none;
+    color: darkslategray; }
+    .input-group .corner-span_error {
+      background-color: darkred; }
+    .input-group .corner-span_success {
+      background-color: darkgreen; }
 
 .random-tree {
   display: flex;
